@@ -1,6 +1,5 @@
-# Mysery-box
+# Gold-box
 
-![image](https://user-images.githubusercontent.com/109362950/220273233-7fa8b9f2-1ae1-401d-9dc2-bf32506c7bb1.png)
 ![image](https://user-images.githubusercontent.com/109362950/220273348-58e93623-013e-430a-bc57-9380483ee3f5.png)
 
 
