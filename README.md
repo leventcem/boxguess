@@ -1,6 +1,6 @@
 # Gold-box
 
-![image](https://user-images.githubusercontent.com/109362950/220273348-58e93623-013e-430a-bc57-9380483ee3f5.png)
+
 
 
 
