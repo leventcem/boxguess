@@ -67,6 +67,15 @@ const HowToPlay = () => {
                   <td className="border border-slate-300 p-3">+6 sol</td>
                 </tr>
                 <tr className="border border-slate-300">
+                  <td className="border border-slate-300 p-3">8 Boxes</td>
+                  <td className="border border-slate-300 p-3">10.25:88.67</td>
+                  <td className="border border-slate-300 p-3">7x Bid</td>
+                  <td className="border border-slate-300 p-3">+70 hbar</td>
+                  <td className="border border-slate-300 p-3">+3500 hbar</td>
+                  <td className="border border-slate-300 p-3">+0.30 sol</td>
+                  <td className="border border-slate-300 p-3">+10 sol</td>
+                </tr>
+                <tr className="border border-slate-300">
                   <td className="border border-slate-300 p-3">12 Boxes</td>
                   <td className="border border-slate-300 p-3">8.33:91.67</td>
                   <td className="border border-slate-300 p-3">10x Bid</td>
