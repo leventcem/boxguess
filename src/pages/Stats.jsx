@@ -57,6 +57,10 @@ const LeaderBoard = () => {
                 <tr className=" " >
                   <td className="text-center  p-1 md:p-3">6 Box - </td>
                   <td className="text-center  p-1 md:p-3">{stats?.totalOf6Boxes || 0}</td>
+                </tr>    
+                <tr className=" " >
+                  <td className="text-center  p-1 md:p-3">8 Box - </td>
+                  <td className="text-center  p-1 md:p-3">{stats?.totalOf8Boxes || 0}</td>
                 </tr>                     
                 <tr className=" " >
                   <td className="text-center  p-1 md:p-3">12 Box - </td>
