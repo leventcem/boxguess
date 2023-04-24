@@ -333,6 +333,14 @@ const Play = () => {
           >
             6 Boxes
           </button>
+           <button
+            className={`optionbutton ${
+              numberOfBoxs === 8 ? "selected" : ""
+            } px-3 md:px-6 py-2 md:py-2 text-lg text-bold`}
+            onClick={() => onChangeNumberOfBoxs(8, 2)}
+          >
+            8 Boxes
+          </button>
           <button
             className={`optionbutton ${
               numberOfBoxs === 12 ? "selected" : ""
