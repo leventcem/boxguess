@@ -7,8 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   BOX_COUNT,
-  WIN_PERCENTAGE,
-  REWARD_MUTIPLIER,
+  // WIN_PERCENTAGE,
+  // REWARD_MUTIPLIER,
   BACKEND_API_URL,
 } from "../config";
 import {
@@ -122,7 +122,7 @@ const Admin = () => {
       .catch((error) => {
         console.log(error);
       });
-   
+
     try {
       let valutH = await readValutBalance();
       dispatch(setHValutBalance(valutH));
@@ -138,7 +138,7 @@ const Admin = () => {
       NotificationManager.error("Wallet should be connected");
       return;
     }
-   
+
   };
 
   const onClickDepositReward = async () => {
@@ -150,7 +150,7 @@ const Admin = () => {
       NotificationManager.error("Wallet should be connected");
       return;
     }
-   
+
     if (chain === "hedera") {
       await depositForRewards(depositAmount);
     }
@@ -228,7 +228,7 @@ const Admin = () => {
   };
 
   const onClickUpdateConfig = async () => {
-    
+
     if (treasuryPercentage == 0) {
       NotificationManager.error("Treasury percentage is 0");
       return;
@@ -245,7 +245,7 @@ const Admin = () => {
       let treasuryPro = Math.ceil(treasuryPercentage * 1000);
       let jackpotPro = Math.floor((treasuryPro * jackpotPercentage) / 100);
       treasuryPro -= jackpotPro;
-      
+
     }
     if (chain === "hedera") {
       await setGameParams(
