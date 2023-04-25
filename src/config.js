@@ -18,6 +18,7 @@ export const EARNING_RATE = {
   2: 1,
   4: 1.5,
   6: 3,
+  8: 5.5,
   12: 10,
 };
 
@@ -31,9 +32,9 @@ export const USER_STATE_SEED = "USER-STATE-SEED";
 export const VAULT_SEED = "VAULT_SEED";
 export const JACKPOT_SEED = "JACKPOT_SEED";
 
-export const BOX_COUNT = [2, 4, 6, 12];
-export const WIN_PERCENTAGE = [47, 23, 15, 7];
-export const REWARD_MUTIPLIER = [10, 15, 30, 100];
+export const BOX_COUNT = [2, 4, 6, 8, 12];
+export const WIN_PERCENTAGE = [47, 23, 15, 8, 7];
+export const REWARD_MUTIPLIER = [10, 15, 30, 55, 100];
 
 export const BET_RANGE = {
   hedera: { min: 10, max: 500, step: 1 },

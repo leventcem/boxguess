@@ -52,7 +52,7 @@ function App() {
   };
 
   useEffect(() => {
-    readDataFromDB();
+    void readDataFromDB();
     // let intervalId = setInterval(() => {
     //   readDataFromDB();
     // }, 10000);

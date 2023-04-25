@@ -12,7 +12,7 @@ import { coinFlip, isInitialized } from "../contract/helpers";
 import { showToast } from "../contract/utils";
 import {
   BOX_COUNT,
-  REWARD_MUTIPLIER,
+  // REWARD_MUTIPLIER,
   BET_RANGE,
   EARNING_RATE,
 } from "../config";
@@ -95,12 +95,12 @@ const PrettoSlider = styled(Slider)({
 const Play = () => {
   const [stage, setStage] = useState(0);
   const [depositAmount, setDepositAmount] = useState(0);
-  const [numberOfBoxs, setNumberOfBoxs] = useState(2);
+  const [numberOfBoxes, setNumberOfBoxes] = useState(2);
   const [userSelectedIdx, setUserSelectedIndex] = useState(-1);
   const [wonIndex, setWonIndex] = useState(0);
-  const [pastSeletedIndex, setPastSelectedIndex] = useState(-1);
-  const [winnerpopup, setWinnerPopup] = useState(false);
-  const [lostpopup, setLostPopup] = useState(false);
+  const [pastSelectedIndex, setPastSelectedIndex] = useState(-1);
+  const [winnerPopup, setWinnerPopup] = useState(false);
+  const [lostPopup, setLostPopup] = useState(false);
   const [boxStatusArray, setBoxStatusArray] = useState([0, 0]);
   const [working, setWorking] = useState(false);
   const params = useParams();
@@ -138,9 +138,9 @@ const Play = () => {
     }
   }, [params]);
 
-  const onChangeNumberOfBoxs = (boxCount, index) => {
+  const onChangeNumberOfBoxes = (boxCount, index) => {
     setUserSelectedIndex(-1);
-    setNumberOfBoxs(boxCount);
+    setNumberOfBoxes(boxCount);
     console.log("numberofboxs ==> ", boxCount);
     let boxStatusArr = [];
     for (let idx = 0; idx < boxCount; idx++) boxStatusArr.push(0);
@@ -173,9 +173,9 @@ const Play = () => {
     let gameResult = false;
     setWorking(true);
     if (chain === "hedera") {
-      console.log(depositAmount, numberOfBoxs, boxIndex);
+      console.log(depositAmount, numberOfBoxes, boxIndex);
       try {
-        gameResult = await playBetting(depositAmount, numberOfBoxs, boxIndex);
+        gameResult = await playBetting(depositAmount, numberOfBoxes, boxIndex);
         if (gameResult !== true && gameResult !== false) {
           toast.warn("Network error.");
           resetGame();
@@ -222,7 +222,7 @@ const Play = () => {
         depositAmount: depositAmount,
         winOrLose: false,
         resultAmount: 0,
-        boxes: numberOfBoxs
+        boxes: numberOfBoxes
       });
       NotificationManager.info(
         `You lost ${depositAmount} ${chain === "solana" ? "SOL" : "HBAR"}`,
@@ -254,17 +254,17 @@ const Play = () => {
         chainId: chain,
         depositAmount: depositAmount,
         winOrLose: true,
-        boxes: numberOfBoxs,
+        boxes: numberOfBoxes,
         resultAmount:
           depositAmount >= 0
-            ? depositAmount * EARNING_RATE[numberOfBoxs] * 0.965
+            ? depositAmount * EARNING_RATE[numberOfBoxes] * 0.965
             : 0,
       });
       NotificationManager.info(
         `You earned ${
           depositAmount >= 0
             ? Number(
-                depositAmount * EARNING_RATE[numberOfBoxs] * 0.965
+                depositAmount * EARNING_RATE[numberOfBoxes] * 0.965
               ).toFixed(3)
             : "0"
         } ${chain === "solana" ? "SOL" : "HBAR"}`,
@@ -309,38 +309,20 @@ const Play = () => {
           Mystery Box
         </h1>
         <div className="w-full md:w-[450px] pb-10 flex gap-1 md:gap-2 justify-center cursor-pointer">
-          <button
-            className={`optionbutton ${
-              numberOfBoxs === 2 ? "selected" : ""
-            } px-3 md:px-6 py-2 md:py-2 text-lg text-bold`}
-            onClick={() => onChangeNumberOfBoxs(2, 0)}
-          >
-            2 Boxes
-          </button>
-          <button
-            className={`optionbutton ${
-              numberOfBoxs === 4 ? "selected" : ""
-            } px-3 md:px-6 py-2 md:py-2 text-lg text-bold`}
-            onClick={() => onChangeNumberOfBoxs(4, 1)}
-          >
-            4 Boxes
-          </button>
-          <button
-            className={`optionbutton ${
-              numberOfBoxs === 6 ? "selected" : ""
-            } px-3 md:px-6 py-2 md:py-2 text-lg text-bold`}
-            onClick={() => onChangeNumberOfBoxs(6, 2)}
-          >
-            6 Boxes
-          </button>
-          <button
-            className={`optionbutton ${
-              numberOfBoxs === 12 ? "selected" : ""
-            } px-3 md:px-6 py-2 md:py-2 text-lg text-bold`}
-            onClick={() => onChangeNumberOfBoxs(12, 3)}
-          >
-            12 Boxes
-          </button>
+          {
+            BOX_COUNT.map((boxCount, index) =>
+                (
+                    <button key={boxCount}
+                        className={`optionbutton ${
+                            numberOfBoxes === boxCount ? "selected" : ""
+                        } px-3 md:px-6 py-2 md:py-2 text-lg text-bold`}
+                        onClick={() => onChangeNumberOfBoxes(boxCount, index)}
+                    >
+                      {boxCount} Boxes
+                    </button>
+                )
+            )
+          }
         </div>
         <div className="w-full md:w-[450px] pb-10 flex flex-col align-middle items-center justify-center">
           <span className="text-white bold text-center">
@@ -367,9 +349,9 @@ const Play = () => {
       <div className="flex justify-center">
         <div
           className={`grid md:w-[60%] m-auto grid-cols-1  ${
-            numberOfBoxs <= 4
+            numberOfBoxes <= 4
               ? "md:grid-cols-2"
-              : numberOfBoxs > 6
+              : numberOfBoxes > 6
               ? "md:grid-cols-4"
               : "md:grid-cols-3"
           } `}
@@ -380,19 +362,19 @@ const Play = () => {
               <div className="relative " key={index}>
                 <Box
                   status={
-                    winnerpopup === true
+                    winnerPopup === true
                       ? index === wonIndex
                         ? 2
                         : 0
-                      : lostpopup === true
-                      ? index === pastSeletedIndex
+                      : lostPopup === true
+                      ? index === pastSelectedIndex
                         ? 3
                         : 0
                       : userSelectedIdx === index
                       ? 1
                       : 0
                   }
-                  numberOfBoxs={numberOfBoxs}
+                  numberOfBoxs={numberOfBoxes}
                   index={index + 1}
                   onClick={() => {
                     handleSelectABox(index);
@@ -402,7 +384,7 @@ const Play = () => {
             ))}
         </div>
       </div>
-      {winnerpopup === true && <Confetti width={width} height={height} />}
+      {winnerPopup === true && <Confetti width={width} height={height} />}
 
       <div style={{ display: "none" }}>
         {losePlay ? <LoseSound /> : null}
