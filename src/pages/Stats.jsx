@@ -21,7 +21,7 @@ const LeaderBoard = () => {
   }
 
   useEffect(() => {
-    getStatsFromDB();
+    void getStatsFromDB();
     let randDel = Math.random() * 0.1;
     setRandomDelta(randDel);
   }, [])

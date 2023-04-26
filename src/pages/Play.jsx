@@ -309,38 +309,20 @@ const Play = () => {
           Mystery Box
         </h1>
         <div className="w-full md:w-[450px] pb-10 flex gap-1 md:gap-2 justify-center cursor-pointer">
-          <button
-            className={`optionbutton ${
-              numberOfBoxs === 2 ? "selected" : ""
-            } px-3 md:px-6 py-2 md:py-2 text-lg text-bold`}
-            onClick={() => onChangeNumberOfBoxs(2, 0)}
-          >
-            2 Boxes
-          </button>
-          <button
-            className={`optionbutton ${
-              numberOfBoxs === 4 ? "selected" : ""
-            } px-3 md:px-6 py-2 md:py-2 text-lg text-bold`}
-            onClick={() => onChangeNumberOfBoxs(4, 1)}
-          >
-            4 Boxes
-          </button>
-          <button
-            className={`optionbutton ${
-              numberOfBoxs === 6 ? "selected" : ""
-            } px-3 md:px-6 py-2 md:py-2 text-lg text-bold`}
-            onClick={() => onChangeNumberOfBoxs(6, 2)}
-          >
-            6 Boxes
-          </button>
-          <button
-            className={`optionbutton ${
-              numberOfBoxs === 12 ? "selected" : ""
-            } px-3 md:px-6 py-2 md:py-2 text-lg text-bold`}
-            onClick={() => onChangeNumberOfBoxs(12, 3)}
-          >
-            12 Boxes
-          </button>
+        {
+            BOX_COUNT.map((boxCount, index) =>
+                (
+                    <button key={boxCount}
+                        className={`optionbutton ${
+                            numberOfBoxs === boxCount ? "selected" : ""
+                        } px-3 md:px-6 py-2 md:py-2 text-lg text-bold`}
+                        onClick={() => onChangeNumberOfBoxs(boxCount, index)}
+                    >
+                      {boxCount} Boxes
+                    </button>
+                )
+            )
+          }
         </div>
         <div className="w-full md:w-[450px] pb-10 flex flex-col align-middle items-center justify-center">
           <span className="text-white bold text-center">
