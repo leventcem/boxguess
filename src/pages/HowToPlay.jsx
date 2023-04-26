@@ -10,7 +10,7 @@ const HowToPlay = () => {
           <div className="text-xl my-5">How to play Mystery Box</div>
           <div className="text-xl">
             There are multiple options to choose from; 2 Boxes, 4 Boxes, 6
-            Boxes, or 12 Boxes. The higher box selections, increases the reward
+            Boxes, 8 Boxes or 12 Boxes. The higher box selections, increases the reward
             multiplier, but decreases your chance to win. With 2 Boxes selection
             you maintain a 50/50 win to lose chance. If the user wants to play
             hard for higher reward, then the 12 boxes selection is best for them
@@ -65,6 +65,15 @@ const HowToPlay = () => {
                   <td className="border border-slate-300 p-3">+1500 hbar</td>
                   <td className="border border-slate-300 p-3">+0.15 sol</td>
                   <td className="border border-slate-300 p-3">+6 sol</td>
+                </tr>
+                <tr className="border border-slate-300">
+                  <td className="border border-slate-300 p-3">8 Boxes</td>
+                  <td className="border border-slate-300 p-3">12.5:87.5</td>
+                  <td className="border border-slate-300 p-3">5x Bid</td>
+                  <td className="border border-slate-300 p-3">+60 hbar</td>
+                  <td className="border border-slate-300 p-3">+3000 hbar</td>
+                  <td className="border border-slate-300 p-3">+0.3 sol</td>
+                  <td className="border border-slate-300 p-3">+12 sol</td>
                 </tr>
                 <tr className="border border-slate-300">
                   <td className="border border-slate-300 p-3">12 Boxes</td>

@@ -33,6 +33,7 @@ const Box = ({
             ${numberOfBoxs === 2 ? "ml-[30px] " : ""}
             ${numberOfBoxs === 4 ? "ml-[30px] " : ""}
             ${numberOfBoxs === 6 ? "ml-[30px] " : ""}
+            ${numberOfBoxs === 8 ? "ml-[20px] mt-[3px]" : ""}
             ${numberOfBoxs === 12 ? "ml-[20px] mt-[3px]" : ""} hover:scale-105`}
             alt=""
             width={"80%"}
@@ -51,6 +52,7 @@ const Box = ({
             ${numberOfBoxs === 2 ? "ml-[30px] " : ""}
             ${numberOfBoxs === 4 ? "ml-[30px] " : ""}
             ${numberOfBoxs === 6 ? "ml-[30px] " : ""}
+            ${numberOfBoxs === 8 ? "ml-[20px] mt-[3px]" : ""}
             ${numberOfBoxs === 12 ? "ml-[20px] mt-[3px]" : ""} hover:scale-105`}
             alt=""
             width={"80%"}
@@ -69,9 +71,8 @@ const Box = ({
             ${numberOfBoxs === 2 ? "ml-[30px] " : ""}
             ${numberOfBoxs === 4 ? "ml-[30px] " : ""}
             ${numberOfBoxs === 6 ? "ml-[30px] " : ""}
-             ${
-               numberOfBoxs === 12 ? "ml-[20px] mt-[3px]" : ""
-             } hover:scale-105`}
+            ${numberOfBoxs === 8 ? "ml-[20px] mt-[3px]" : ""}
+            ${numberOfBoxs === 12 ? "ml-[20px] mt-[3px]" : "" } hover:scale-105`}
             alt=""
             width={"80%"}
             onClick={onClick}
